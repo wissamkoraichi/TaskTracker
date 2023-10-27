@@ -1,0 +1,41 @@
+#:import utils kivy.utils
+<HomeScreen>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#333f48")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 1, .1
+            text: ""
+            id: task_label
+        ScrollView:
+            pos_hint: {"top": .9, "left": 1}
+            size_hint: 1, .75
+            GridLayout:
+                id: banner_grid
+                cols: 1
+                spacing: 10, 10
+                size_hint_y: None
+                height:self.minimum_height
+                row_default_height: '100dp'
+                row_force_default: True
+        GridLayout:
+            rows: 1
+            pos_hint: {"top": .15, "left": 1}
+            size_hint: 1, .15
+            ImageButton:
+                source: "icons/icons8-test-account-30.png"
+                on_release:
+                    print("Released profile button")
+            ImageButton:
+                source: "icons/icons8-add-new-30.png"
+                on_release:
+                    print("Released add button")
+            ImageButton:
+                source: "icons/icons8-settings-64.png" if self.state=='normal' else "icons/avatar.png"
+                on_release:
+                    app.change_screen("settings_screen")

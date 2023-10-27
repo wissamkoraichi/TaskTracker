@@ -1,0 +1,43 @@
+<SettingsScreen>:
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex("#333f48")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        Label:
+            id: friend_id_label
+            text: "Friend ID: "
+            size_hint: 1, .1
+            pos_hint: {"top": 1, "left": 1}
+        ImageButton:
+            size_hint: .5, .2
+            pos_hint: {"top": .7, "left": 1}
+            source: "icons/avatars/lawyer.png"
+            on_release:
+                app.change_screen("change_avatar_screen")
+        LabelButton:
+            size_hint: .3, .2
+            pos_hint: {"top": .7, "right": .8}
+            text: "Change Avatar"
+            on_release:
+                app.change_screen("change_avatar_screen")
+        ImageButton:
+            size_hint: .5, .2
+            pos_hint: {"top": .5, "left": 1}
+            source: "icons/icons8-add-user-group-woman-man-30.png"
+            on_release:
+                app.change_screen("add_friend_screen")
+        LabelButton:
+            size_hint: .3, .2
+            pos_hint: {"top": .5, "right": .8}
+            text: "Add a Friend"
+            on_release:
+                app.change_screen("add_friend_screen")
+        ImageButton:
+            source: "icons/icons8-back-64.png"
+            size_hint: .2, .15
+            pos_hint: {"top": .2, "right": .25}
+            on_release:
+                app.change_screen("home_screen")
